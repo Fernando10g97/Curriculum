@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Nuevas Experiencias Laborales</title>
+</h:head> 
+	<body>
+	<h:form>
+		<p:toolbar>
+			<p:toolbarGroup align="left">
+				<p:commandButton value="Grabar"
+					actionListener="#{experiencialaboralController.grabar}" update="messagesdo"
+					action="datosinformativos?faces-redirect=true"
+					ajax="true"></p:commandButton>
+			</p:toolbarGroup>
+			<p:toolbarGroup align="right">
+				<p:menuButton value="Opciones">
+					<p:menuitem value="Regresar" outcome="datosinformativos.jsf" />
+				</p:menuButton>
+			</p:toolbarGroup>
+		</p:toolbar>
+	
+		<p:messages errorClass="msg-error">
+		</p:messages>
+		<p:growl id="messagesdo" showDetail="true" sticky="true" />
+		<p:panelGrid columns="2" border="1" rules="all">
+			<f:facet name="header">
+				<h:outputText value="Nuevo Registro de Experiencias Laborales" />
+			</f:facet>
+			
+			<h:outputText value="Id" />
+			<h:inputHidden value="#{experiencialaboralController.experienciaLaboral.id}" 
+			required="false" requiredMessage="El campo es requerido" />
+				
+			<h:outputText value="Experiencia:" />
+			<p:inputText value="#{experiencialaboralController.experienciaLaboral.experiencia}"  
+			required="true" requiredMessage="El campo es requerido" ></p:inputText>
+			
+			<h:outputText value="Institución:" />
+			<p:inputText value="#{experiencialaboralController.experienciaLaboral.institucion}"  
+			required="true" requiredMessage="El campo es requerido" ></p:inputText>
+			
+			<h:outputText value="Cátedra:" />
+			<p:inputText value="#{experiencialaboralController.experienciaLaboral.catedra}"  
+			required="true" requiredMessage="El campo es requerido" ></p:inputText>
+			
+			<p:outputLabel for="button6" value="Desde:" />
+       		<p:datePicker id="button6" value="#{experiencialaboralController.experienciaLaboral.desde}" showIcon="true" />
+       		
+       		<p:outputLabel for="button7" value="Hasta:" />
+       		<p:datePicker id="button7" value="#{experiencialaboralController.experienciaLaboral.hsata}" showIcon="true" />
+       		
+			
+			</p:panelGrid>
+
+
+
+</h:form>
+
+</body>
+	
+</html>

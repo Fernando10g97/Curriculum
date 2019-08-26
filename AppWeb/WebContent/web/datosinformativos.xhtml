@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Datos Informativos</title>
+</h:head> 
+<body bgcolor="cyan"> 
+
+<h:form id="frmGeneral" enctype="multipart/form-data">
+
+<p>
+<!-- <h:outputLabel value="Direccion Administrativa y del Talento Humano" /> -->
+</p>
+
+<img src="https://www.pucese.edu.ec/wp-content/uploads/2019/04/Logo-blanco-PUCE-1024x194.png" width="1100"/>
+<img src="https://i1.rgstatic.net/ii/profile.image/441524723949571-1482279105878_Q512/Jaime_Sayago_Heredia.jpg" width="190"/>
+
+
+
+<!-- <center>
+PONTIFICIA UNIVERSIDAD CATÓLICA DEL ECUADOR
+</center>
+
+<center>
+Sede Esmeraldas
+</center> -->
+
+
+<center>
+<h2>Dirección Administrativa y del Talento Humano</h2>
+<h1>CURRÍCULO DEL DOCENTE</h1>
+<h3><marquee> Bienvenido Jaime Paúl Sayago Heredia </marquee></h3>
+</center>
+<div align='center'></div>
+
+
+
+<!-- 1 DATOS INFORMATIVOS -->
+<p:commandButton value="Nuevo" action= "newDatosInformativos?faces-redirect=true" 
+actionListener="#{datosinformativosController.limpiar}" ajax="true" >
+</p:commandButton>
+
+<p></p>
+
+<h:outputLabel value="1. DATOS INFORMATIVOS" />
+
+<p:dataTable id="tablaDatosInformativos" var="a" value="#{datosinformativosController.listarC}">
+    <p:column headerText="Id">
+        <h:outputText value="#{a.id_Docente}" />
+    </p:column>
+ 
+ 	<p:column headerText="Apellidos">
+    	<h:outputText value="#{a.apellido}" />
+    </p:column>
+    
+ 	<p:column headerText="Nombres">
+        <h:outputText value="#{a.nombre}" />
+    </p:column>
+    
+    <p:column headerText="Fecha">
+    	<h:outputText value="#{a.fecha_Nacimiento}" />
+    </p:column>
+    
+    <p:column headerText="Cédula">
+    	<h:outputText value="#{a.cedula}" />
+    </p:column>
+    
+    <p:column headerText="Nacionalidad">
+        <h:outputText value="#{a.nacionalidad}" />
+    </p:column>
+    
+    <p:column headerText="Estado Civil">
+    	<h:outputText value="#{a.estado_Civil}" />
+    </p:column>
+    
+    <p:column headerText="Tipo de Sangre">
+        <h:outputText value="#{a.tipo_Sangre}" />
+    </p:column>
+    
+    <p:column headerText="Lugar de Nacimiento">
+        <h:outputText value="#{a.lugar_Nacimiento}" />
+    </p:column>
+    
+    <p:column headerText="Dirección">
+        <h:outputText value="#{a.direccion}" />
+    </p:column>
+    
+    <p:column headerText="Teléfono Celular">
+        <h:outputText value="#{a.telefono_Celular}" />
+    </p:column>
+    
+    <p:column headerText="Convencional">
+        <h:outputText value="#{a.convencional}" />
+    </p:column>
+    
+    <p:column headerText="Correo Electrónico">
+        <h:outputText value="#{a.correo_Electronico}" />
+    </p:column>
+    
+    <p:column headerText="Menu" >
+    
+    <p:toolbarGroup align="right">
+    <p:menuButton value="opciones">
+    <p:menuitem value="modificar" action="newDatosInformativos.jsf"
+    actionListener="#{datosinformativosController.buscar}" ajax="false" >
+    <f:attribute name="datosinformativosbuscar" value="#{a.id_Docente}" />
+    </p:menuitem>
+    
+    <p:menuitem value="eliminar" action="datosinformativos.jsf"
+    onclick="if (!confirm('esta seguro de eliminar?')) return false"
+    actionListener="#{datosinformativosController.eliminar}" update="tablaDatosInformativos"
+    ajax="true">
+    <f:attribute name="datosinformativoseliminar" value="#{a.id_Docente}" /> 
+    </p:menuitem>
+    
+    </p:menuButton>
+    </p:toolbarGroup>
+        
+    </p:column>
+ 
+</p:dataTable>
+
+
+
+<br/><br/><br/>
+
+
+
+<!-- 2 TITULOS OBTENIDOS -->
+<p:commandButton value="Nuevo" action= "newTitulosObtenidos?faces-redirect=true" 
+actionListener="#{titulosobtenidosController.limpiar}" ajax="true" >
+</p:commandButton>
+
+<p></p>
+
+<h:outputLabel value="2. TITULOS OBTENIDOS" />
+
+<p:dataTable id="tablaTitulosObtenidos" var="a" value="#{titulosobtenidosController.listarC}">
+    <p:column headerText="Id">
+        <h:outputText value="#{a.id}" />
+    </p:column>
+    
+    <p:column headerText="Nivel">
+    	<h:outputText value="#{a.nivel}" />
+    </p:column>
+ 
+ 	<p:column headerText="Título">
+    	<h:outputText value="#{a.titulo}" />
+    </p:column>
+    
+ 	<p:column headerText="Universidad">
+        <h:outputText value="#{a.universidad}" />
+    </p:column>
+    
+    <p:column headerText="Ciudad">
+        <h:outputText value="#{a.ciudad}" />
+    </p:column>
+    
+    <p:column headerText="Fecha de Grado">
+    	<h:outputText value="#{a.fechaGrado}" />
+    </p:column>
+    
+    <p:column headerText="Menu" >
+    
+    <p:toolbarGroup align="right">
+    <p:menuButton value="opciones">
+    <p:menuitem value="modificar" action="newTitulosObtenidos.jsf"
+    actionListener="#{titulosobtenidosController.buscar}" ajax="false" >
+    <f:attribute name="titulosobtenidosbuscar" value="#{a.id}" />
+    </p:menuitem>
+    
+    <p:menuitem value="eliminar" action="datosinformativos.jsf"
+    onclick="if (!confirm('esta seguro de eliminar?')) return false"
+    actionListener="#{titulosobtenidosController.eliminar}" update="tablaTitulosObtenidos"
+    ajax="true">
+    <f:attribute name="titulosobtenidoseliminar" value="#{a.id}" /> 
+    </p:menuitem>
+    
+    </p:menuButton>
+    </p:toolbarGroup>
+        
+    </p:column>
+ 
+</p:dataTable>
+
+
+
+<br/><br/><br/>
+
+
+
+<!-- 3 EXPERIENCIA LABORAL -->
+<p:commandButton value="Nuevo" action= "newExperienciaLaboral?faces-redirect=true" 
+actionListener="#{experiencialaboralController.limpiar}" ajax="true" >
+</p:commandButton>
+
+<p></p>
+
+<h:outputLabel value="3. EXPERIENCIA LABORAL" />
+
+<p:dataTable id="tablaExperienciaLaboral" var="a" value="#{experiencialaboralController.listarC}">
+    <p:column headerText="Id">
+        <h:outputText value="#{a.id}" />
+    </p:column>
+    
+    <p:column headerText="Experiencia">
+    	<h:outputText value="#{a.experiencia}" />
+    </p:column>
+ 
+ 	<p:column headerText="Institución">
+    	<h:outputText value="#{a.institucion}" />
+    </p:column>
+    
+ 	<p:column headerText="Cátedra">
+        <h:outputText value="#{a.catedra}" />
+    </p:column>
+    
+    <p:column headerText="Desde">
+        <h:outputText value="#{a.desde}" />
+    </p:column>
+    
+    <p:column headerText="Hasta">
+    	<h:outputText value="#{a.hsata}" />
+    </p:column>
+    
+    <p:column headerText="Menu" >
+    
+    <p:toolbarGroup align="right">
+    <p:menuButton value="opciones">
+    <p:menuitem value="modificar" action="newExperienciaLaboral.jsf"
+    actionListener="#{experiencialaboralController.buscar}" ajax="false" >
+    <f:attribute name="experiencialaboralbuscar" value="#{a.id}" />
+    </p:menuitem>
+    
+    <p:menuitem value="eliminar" action="datosinformativos.jsf"
+    onclick="if (!confirm('esta seguro de eliminar?')) return false"
+    actionListener="#{experiencialaboralController.eliminar}" update="tablaExperienciaLaboral"
+    ajax="true">
+    <f:attribute name="experiencialaboraleliminar" value="#{a.id}" /> 
+    </p:menuitem>
+    
+    </p:menuButton>
+    </p:toolbarGroup>
+        
+    </p:column>
+ 
+</p:dataTable>
+
+
+
+<br/><br/><br/>
+
+
+
+<!-- 4 CAPACITACION -->
+<p:commandButton value="Nuevo" action= "newCapacitacion?faces-redirect=true" 
+actionListener="#{capacitacionController.limpiar}" ajax="true" >
+</p:commandButton>
+
+<p></p>
+
+<h:outputLabel value="4. CAPACITACION" />
+
+<p:dataTable id="tablaCapacitacion" var="a" value="#{capacitacionController.listarC}">
+    <p:column headerText="Id">
+        <h:outputText value="#{a.id}" />
+    </p:column>
+ 
+ 	<p:column headerText="Capacitación">
+    	<h:outputText value="#{a.capacitacion}" />
+    </p:column>
+    
+ 	<p:column headerText="Tipo de Evento">
+        <h:outputText value="#{a.tipoEvento}" />
+    </p:column>
+    
+    <p:column headerText="Institución">
+    	<h:outputText value="#{a.institucion}" />
+    </p:column>
+    
+    <p:column headerText="N° de Horas">
+    	<h:outputText value="#{a.numeroHora}" />
+    </p:column>
+    
+    <p:column headerText="Fecha Inicial">
+    	<h:outputText value="#{a.fechaInicial}" />
+    </p:column>
+    
+    <p:column headerText="Fecha Final">
+    	<h:outputText value="#{a.fechaFinal}" />
+    </p:column>
+    
+    <p:column headerText="Menu" >
+    
+    <p:toolbarGroup align="right">
+    <p:menuButton value="opciones">
+    <p:menuitem value="modificar" action="newCapacitacion.jsf"
+    actionListener="#{capacitacionController.buscar}" ajax="false" >
+    <f:attribute name="capacitacionbuscar" value="#{a.id}" />
+    </p:menuitem>
+    
+    <p:menuitem value="eliminar" action="datosinformativos.jsf"
+    onclick="if (!confirm('esta seguro de eliminar?')) return false"
+    actionListener="#{capacitacionController.eliminar}" update="tablaCapacitacion"
+    ajax="true">
+    <f:attribute name="capacitacioneliminar" value="#{a.id}" /> 
+    </p:menuitem>
+    
+    </p:menuButton>
+    </p:toolbarGroup>
+        
+    </p:column>
+ 
+</p:dataTable>
+
+
+
+<br/><br/><br/>
+
+
+
+<!-- 5 PUBLICACIONES -->
+<p:commandButton value="Nuevo" action= "newPublicaciones?faces-redirect=true" 
+actionListener="#{publicacionesController.limpiar}" ajax="true" >
+</p:commandButton>
+
+<p></p>
+
+<h:outputLabel value="5. PUBLICACIONES" />
+
+<p:dataTable id="tablaPublicaciones" var="a" value="#{publicacionesController.listarC}">
+    <p:column headerText="Id">
+        <h:outputText value="#{a.id}" />
+    </p:column>
+ 
+ 	<p:column headerText="Tipo de Publicación">
+    	<h:outputText value="#{a.tipoPublicacion}" />
+    </p:column>
+    
+ 	<p:column headerText="Título">
+        <h:outputText value="#{a.titulo}" />
+    </p:column>
+    
+    <p:column headerText="Editorial">
+    	<h:outputText value="#{a.editorial}" />
+    </p:column>
+    
+    <p:column headerText="Año">
+    	<h:outputText value="#{a.anio}" />
+    </p:column>
+    
+    <p:column headerText="Menu" >
+    
+    <p:toolbarGroup align="right">
+    <p:menuButton value="opciones">
+    <p:menuitem value="modificar" action="newPublicaciones.jsf"
+    actionListener="#{publicacionesController.buscar}" ajax="false" >
+    <f:attribute name="publicacionesbuscar" value="#{a.id}" />
+    </p:menuitem>
+    
+    <p:menuitem value="eliminar" action="datosinformativos.jsf"
+    onclick="if (!confirm('esta seguro de eliminar?')) return false"
+    actionListener="#{publicacionesController.eliminar}" update="tablaPublicaciones"
+    ajax="true">
+    <f:attribute name="publicacioneseliminar" value="#{a.id}" /> 
+    </p:menuitem>
+    
+    </p:menuButton>
+    </p:toolbarGroup>
+        
+    </p:column>
+ 
+</p:dataTable>
+
+
+
+<br/><br/><br/>
+
+
+
+<!-- 6 VINCULACION -->
+<p:commandButton value="Nuevo" action= "newVinculacion?faces-redirect=true" 
+actionListener="#{vinculacionController.limpiar}" ajax="true" >
+</p:commandButton>
+
+<p></p>
+
+<h:outputLabel value="6. VINCULACION" />
+
+<p:dataTable id="tablaVinculacion" var="a" value="#{vinculacionController.listarC}">
+    <p:column headerText="Id">
+        <h:outputText value="#{a.id}" />
+    </p:column>
+ 
+ 	<p:column headerText="Proyecto">
+    	<h:outputText value="#{a.proyecto}" />
+    </p:column>
+    
+ 	<p:column headerText="Institución">
+        <h:outputText value="#{a.institucion}" />
+    </p:column>
+    
+    <p:column headerText="Año">
+    	<h:outputText value="#{a.anio}" />
+    </p:column>
+    
+    <p:column headerText="Menu" >
+    
+    <p:toolbarGroup align="right">
+    <p:menuButton value="opciones">
+    <p:menuitem value="modificar" action="newVinculacion.jsf"
+    actionListener="#{vinculacionController.buscar}" ajax="false" >
+    <f:attribute name="vinculacionbuscar" value="#{a.id}" />
+    </p:menuitem>
+    
+    <p:menuitem value="eliminar" action="datosinformativos.jsf"
+    onclick="if (!confirm('esta seguro de eliminar?')) return false"
+    actionListener="#{vinculacionController.eliminar}" update="tablaVinculacion"
+    ajax="true">
+    <f:attribute name="vinculacioneliminar" value="#{a.id}" /> 
+    </p:menuitem>
+    
+    </p:menuButton>
+    </p:toolbarGroup>
+        
+    </p:column>
+ 
+</p:dataTable>
+
+
+
+<br/><br/>
+
+
+
+<h:outputLabel value="Certifico que los datos consignados en el presente formulario son verídicos. " />
+
+<br/><br/>
+
+<h:outputLabel value="Esmeraldas 24 de Agosto de 2019" />
+
+<br/><br/>
+
+<h:outputLabel value="Lugar y fecha" />
+
+
+
+</h:form>
+
+</body>
+ 
+</html>
